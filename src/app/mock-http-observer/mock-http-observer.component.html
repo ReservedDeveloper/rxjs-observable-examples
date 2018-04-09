@@ -5,7 +5,7 @@
   <tr *ngFor="let chunk of chunks">
     <td>{{ chunk.title }}</td>
     <table>
-      <tr *ngFor="let like of likes">
+      <tr *ngFor="let like of chunk.likes">
         <td> {{ like.username }} </td>
         <td> {{ like.timestamp }} </td>
       </tr>
