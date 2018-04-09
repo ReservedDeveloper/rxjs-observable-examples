@@ -22,9 +22,4 @@ export class MockHttpObserverComponent implements OnInit {
     this.currentChunk = this.currentChunk + 1;
     this.chunkService.getChunk(this.currentChunk);
   }
-
-  stringify(obj: any) {
-    return JSON.stringify(obj);
-  }
-
 }
