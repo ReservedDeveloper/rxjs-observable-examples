@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class DataService {
+  // Property that models the data we are observing...
   private dataStore: string[] = [];
-  // the BehaviorSubject that is storing our datas...
+  // BehaviorSubject that is storing our datas...
   private dataSubject = new BehaviorSubject<string[]>(this.dataStore);
-  // the property that is storing our BehaviorSubject as an observable...
-  dataObservable = this.dataSubject.asObservable();
+  // Observable that is storing our BehaviorSubject as an Observable...
+  dataObservable: Observable<string[]> = this.dataSubject.asObservable();
 
   constructor() { }
 
