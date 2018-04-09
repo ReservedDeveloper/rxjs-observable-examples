@@ -5,19 +5,23 @@ import { AppComponent } from './app.component';
 import { DataCreatorComponent } from './data-creator/data-creator.component';
 import { DataObserverComponent } from './data-observer/data-observer.component';
 import { DataService } from './data.service';
+import { ChunkService } from './chunk.service';
+import { MockHttpObserverComponent } from './mock-http-observer/mock-http-observer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DataCreatorComponent,
-    DataObserverComponent
+    DataObserverComponent,
+    MockHttpObserverComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
   providers: [
-    DataService
+    DataService,
+    ChunkService
   ],
   bootstrap: [AppComponent]
 })
