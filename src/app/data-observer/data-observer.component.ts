@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-data-observer',
@@ -8,11 +9,11 @@ import { DataService } from '../data.service';
 })
 export class DataObserverComponent implements OnInit {
 
-  data: string[];
+  data: Observable<string[]>;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.dataObservable.subscribe( (d: string[]) => this.data = d);
+    this.data = this.dataService.dataObservable;
   }
 }

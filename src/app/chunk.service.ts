@@ -5,7 +5,7 @@ import { database } from './database';
 
 @Injectable()
 export class ChunkService {
-  private readonly DEFAULT_CHUNK_SIZE = 2;
+  private readonly DEFAULT_PAGING_LIMIT = 2;
 
   private chunkStore: any[] = [];
 
@@ -15,11 +15,11 @@ export class ChunkService {
 
   constructor() { }
 
-  getChunk(i: number) {
+  getChunks(offset: number, limit: number = this.DEFAULT_PAGING_LIMIT) {
     // Simulating an http request to api, and Observing the response to
     // get the chunk from the requests payload...
-    const from = i * this.DEFAULT_CHUNK_SIZE;
-    const to = (i * this.DEFAULT_CHUNK_SIZE) + this.DEFAULT_CHUNK_SIZE;
+    const from = offset;
+    const to = offset + limit;
     this.chunkStore = this.chunkStore.concat(database.slice(from, to));
     this.chunkSubject.next(this.chunkStore);
   }
