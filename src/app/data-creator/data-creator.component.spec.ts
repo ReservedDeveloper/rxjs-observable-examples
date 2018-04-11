@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DataCreatorComponent } from './data-creator.component';
+import { DataService } from '../data.service';
+import { FormsModule } from '@angular/forms';
 
 describe('DataCreatorComponent', () => {
   let component: DataCreatorComponent;
@@ -8,9 +10,11 @@ describe('DataCreatorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DataCreatorComponent ]
+      imports: [FormsModule],
+      declarations: [DataCreatorComponent],
+      providers: [ DataService ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

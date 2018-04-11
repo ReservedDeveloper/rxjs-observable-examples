@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DataObserverComponent } from './data-observer.component';
+import { DataService } from '../data.service';
 
 describe('DataObserverComponent', () => {
   let component: DataObserverComponent;
@@ -8,7 +9,8 @@ describe('DataObserverComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DataObserverComponent ]
+      declarations: [ DataObserverComponent ],
+      providers: [ DataService ]
     })
     .compileComponents();
   }));
