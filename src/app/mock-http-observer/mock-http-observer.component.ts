@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChunkService } from '../chunk.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-mock-http-observer',
@@ -7,19 +8,16 @@ import { ChunkService } from '../chunk.service';
   styleUrls: ['./mock-http-observer.component.css']
 })
 export class MockHttpObserverComponent implements OnInit {
-  currentChunk: number;
-  chunks: any[];
+  chunks: Observable<any[]>;
 
   constructor(private chunkService: ChunkService) { }
 
   ngOnInit() {
-    this.chunkService.chunkObservable.subscribe( c => this.chunks = c);
-    this.currentChunk = 0;
-    this.chunkService.getChunk(0);
+    this.chunks = this.chunkService.chunkObservable;
+    this.getNextChunk(0);
   }
 
-  getNextChunk() {
-    this.currentChunk = this.currentChunk + 1;
-    this.chunkService.getChunk(this.currentChunk);
+  getNextChunk(offset: number) {
+    this.chunkService.getChunks(offset);
   }
 }
