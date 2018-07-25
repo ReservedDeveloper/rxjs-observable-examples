@@ -1,0 +1,13 @@
+<p>
+  Below this will be an input with button, which, when clicked, will push the new value to each of its children.
+</p>
+<p>
+  How those updates are handled depends on how the component processes input modifications, if at all.
+</p>
+<input type="number" #idPicker value="1"/>
+<button (click)="this.changeChildId()">Change ID</button>
+<div class="three-column" *ngIf="this.childId | async as childId">
+  <app-no-change-child [id]="childId"></app-no-change-child>
+  <app-change-child [id]="childId"></app-change-child>
+  <div>Subject-based placeholder</div>
+</div>

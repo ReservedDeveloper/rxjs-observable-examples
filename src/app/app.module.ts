@@ -1,21 +1,23 @@
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { DataService } from './data.service';
-import { ChunkService } from './chunk.service';
 import { AppRoutingModule } from './app-routing-module';
 import { InitialExampleModule } from './initial-example/initial-example.module';
+import { ChangeDetectionExampleModule } from './change-detection-example/change-detection-example.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { LogService } from './log.service';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    BrowserModule,
     InitialExampleModule,
+    ChangeDetectionExampleModule,
     AppRoutingModule
   ],
   providers: [
-    DataService,
-    ChunkService
+    LogService
   ],
   bootstrap: [AppComponent]
 })

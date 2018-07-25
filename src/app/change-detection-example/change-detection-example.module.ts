@@ -1,0 +1,28 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { ChangeDetectionExampleRoutingModule } from './change-detection-example-routing.module';
+import { ChangeDetectionExampleComponent } from './change-detection-example.component';
+import { ChangeParentComponent } from './change-parent/change-parent.component';
+import { ChangeGrandparentComponent } from './change-grandparent/change-grandparent.component';
+import { ChangeChildComponent } from './change-child/change-child.component';
+import { NoChangeChildComponent } from './no-change-child/no-change-child.component';
+import { ChildRecordService } from './child-record.service';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    ChangeDetectionExampleRoutingModule
+  ],
+  declarations: [
+    ChangeDetectionExampleComponent,
+    ChangeParentComponent,
+    ChangeGrandparentComponent,
+    ChangeChildComponent,
+    NoChangeChildComponent
+  ],
+  providers: [
+    ChildRecordService
+  ]
+})
+export class ChangeDetectionExampleModule { }
