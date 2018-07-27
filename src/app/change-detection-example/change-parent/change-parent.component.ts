@@ -1,22 +1,36 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { LogService } from '../../log.service';
 
 @Component({
   selector: 'app-change-parent',
   templateUrl: './change-parent.component.html',
   styleUrls: ['./change-parent.component.scss']
 })
-export class ChangeParentComponent implements OnInit {
+export class ChangeParentComponent implements OnDestroy, OnInit {
 
-  childIdSubject: Subject<number> = new Subject();
-  childId: Observable<number> = this.childIdSubject.asObservable();
+  childIdSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  childIdStream: Observable<number> = this.childIdSubject.asObservable();
 
   @ViewChild('idPicker')
   idPicker: ElementRef;
 
-  constructor() { }
+  currentId: number;
+  private idSubscription: Subscription;
+
+  constructor(
+    private logService: LogService
+  ) { }
 
   ngOnInit() {
+    this.idSubscription = this.childIdStream.subscribe((nextId: number) => this.currentId = nextId);
+  }
+
+  ngOnDestroy() {
+    if (this.idSubscription) {
+      this.idSubscription.unsubscribe();
+    }
+    this.logService.log('ChangeParentComponent destroyed');
   }
 
   changeChildId() {

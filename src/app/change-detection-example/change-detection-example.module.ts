@@ -8,6 +8,7 @@ import { ChangeGrandparentComponent } from './change-grandparent/change-grandpar
 import { ChangeChildComponent } from './change-child/change-child.component';
 import { NoChangeChildComponent } from './no-change-child/no-change-child.component';
 import { ChildRecordService } from './child-record.service';
+import { StreamInputSwitchChildComponent } from './stream-input-switch-child/stream-input-switch-child.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { ChildRecordService } from './child-record.service';
     ChangeParentComponent,
     ChangeGrandparentComponent,
     ChangeChildComponent,
-    NoChangeChildComponent
+    NoChangeChildComponent,
+    StreamInputSwitchChildComponent
   ],
   providers: [
     ChildRecordService

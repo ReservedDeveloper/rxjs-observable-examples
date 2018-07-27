@@ -7,6 +7,6 @@ export class ChildRecordService {
   constructor() { }
 
   getChildRecord(id: number): Observable<string> {
-    return of(`Child record ${id || 'none'}`);
+    return of(`Child record ${id != null && id.toString() || 'none'}`);
   }
 }

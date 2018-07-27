@@ -1,9 +1,10 @@
 .three-column {
   display: flex;
   justify-content: space-between;
-}
 
-.three-column > * {
-  flex: 1;
-  width: 30%;
+  > * {
+    flex: 1;
+    max-width: 30%;
+    padding: 0 1px;
+  }
 }

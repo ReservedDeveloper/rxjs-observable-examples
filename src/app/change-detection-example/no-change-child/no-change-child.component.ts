@@ -1,5 +1,7 @@
 import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { ChildRecordService } from '../child-record.service';
+import { LogService } from '../../log.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-no-change-child',
@@ -11,22 +13,30 @@ export class NoChangeChildComponent implements OnInit, OnChanges, OnDestroy {
   @Input()
   id: number;
   record = '';
-  inputUpdates: string[] = [];
+
+  private recordSubscription: Subscription;
 
   constructor(
-    private childRecordService: ChildRecordService
+    private childRecordService: ChildRecordService,
+    private logService: LogService
   ) { }
 
   ngOnInit() {
-    this.childRecordService.getChildRecord(this.id)
+    this.recordSubscription = this.childRecordService.getChildRecord(this.id)
       .subscribe((record: string) => this.record = record );
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.inputUpdates.push(`Input changed to ${changes.id.currentValue}`);
+    this.logService.log(
+      `Input changed for NoChangeChildComponent. Old value:
+      ${changes.id.previousValue}, New value: ${changes.id.currentValue}`
+    );
   }
 
   ngOnDestroy() {
-    console.log('NoChangeChildComponent destroyed');
+    this.logService.log('NoChangeChildComponent destroyed');
+    if (this.recordSubscription) {
+      this.recordSubscription.unsubscribe();
+    }
   }
 }

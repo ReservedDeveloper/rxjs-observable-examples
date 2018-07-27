@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { ChildRecordService } from '../child-record.service';
 import { LogService } from '../../log.service';
 import { Subscription } from 'rxjs';
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './change-child.component.html',
   styleUrls: ['./change-child.component.scss']
 })
-export class ChangeChildComponent implements OnInit, OnChanges {
+export class ChangeChildComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input()
   id: number;
@@ -40,5 +40,12 @@ export class ChangeChildComponent implements OnInit, OnChanges {
   setupRecordSubscription(id: number) {
     this.recordSubscription = this.childRecordService.getChildRecord(id)
       .subscribe((record: string) => this.record = record );
+  }
+
+  ngOnDestroy(): void {
+    this.logService.log('ChangeChildComponent destroyed');
+    if (this.recordSubscription) {
+      this.recordSubscription.unsubscribe();
+    }
   }
 }
