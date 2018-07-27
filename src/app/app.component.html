@@ -8,7 +8,6 @@
   <li><a routerLink="/change">Change Detection</a></li>
 </ul>
 <hr/>
-<h2>Lifecycle Logging Messages</h2>
- <p>TODO: Consume lifecycle logging service</p>
+<app-logger-output [messagesStream]="this.logMessagesStream"></app-logger-output>
 <hr/>
 <router-outlet></router-outlet>

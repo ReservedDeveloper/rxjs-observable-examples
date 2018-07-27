@@ -2,25 +2,22 @@ import { async, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { DataService } from './data.service';
-import { ChunkService } from './chunk.service';
-import { DataCreatorComponent } from './data-creator/data-creator.component';
-import { DataObserverComponent } from './data-observer/data-observer.component';
-import { MockHttpObserverComponent } from './mock-http-observer/mock-http-observer.component';
+import { LoggerOutputComponent } from './logger-output/logger-output.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { LogService } from './log.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ FormsModule ],
+      imports: [
+        RouterTestingModule
+      ],
       declarations: [
-        DataCreatorComponent,
-        DataObserverComponent,
-        MockHttpObserverComponent,
+        LoggerOutputComponent,
         AppComponent,
       ],
       providers: [
-        DataService,
-        ChunkService,
+        LogService
       ],
     }).compileComponents();
   }));

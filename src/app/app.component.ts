@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LogService } from './log.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ import { Observable } from 'rxjs/Observable';
 export class AppComponent implements OnInit {
   title = 'app';
 
-  logMessages: Observable<string[]>;
+  logMessagesStream: Observable<string>;
 
   constructor(
     private logService: LogService
@@ -18,10 +18,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.logMessages = this.logService.messagesStream;
-  }
-
-  clearLogs() {
-    this.logService.clearLogs();
+    this.logMessagesStream = this.logService.messageStream;
   }
 }

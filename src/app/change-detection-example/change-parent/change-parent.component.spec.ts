@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ChangeParentComponent } from './change-parent.component';
+import { NoChangeChildComponent } from '../no-change-child/no-change-child.component';
+import { ChangeChildComponent } from '../change-child/change-child.component';
 
 describe('ChangeParentComponent', () => {
   let component: ChangeParentComponent;
@@ -8,7 +10,11 @@ describe('ChangeParentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChangeParentComponent ]
+      declarations: [
+        NoChangeChildComponent,
+        ChangeChildComponent,
+        ChangeParentComponent
+      ]
     })
     .compileComponents();
   }));

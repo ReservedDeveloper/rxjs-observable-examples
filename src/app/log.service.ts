@@ -1,23 +1,16 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable()
 export class LogService {
 
-  private messages: string[] = [];
-  private messagesSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
-  messagesStream: Observable<string[]> = this.messagesSubject.asObservable();
+  private messageSubject: Subject<string> = new Subject<string>();
+  messageStream: Observable<string> = this.messageSubject.asObservable();
 
-  constructor() { }
-
-  log(message: string) {
-    this.messages.push(message);
-    this.messagesSubject.next(this.messages);
+  constructor() {
   }
 
-  clearLogs() {
-    this.messages = [];
-    this.messagesSubject.next(this.messages);
+  log(message: string) {
+    this.messageSubject.next(message);
   }
 }

@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ChildRecordService } from '../child-record.service';
 import { LogService } from '../../log.service';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-change-child',
@@ -26,7 +26,10 @@ export class ChangeChildComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.logService.log('Change detected for ChangeChildComponent');
+    this.logService.log(
+      `Change detected for ChangeChildComponent. Old value:
+      ${changes.id.previousValue}, New value: ${changes.id.currentValue}`
+    );
     if (this.recordSubscription) {
       this.recordSubscription.unsubscribe();
     }
