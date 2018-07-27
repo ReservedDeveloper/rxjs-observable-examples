@@ -4,7 +4,7 @@ import { Observable, Subject } from 'rxjs';
 @Component({
   selector: 'app-change-parent',
   templateUrl: './change-parent.component.html',
-  styleUrls: ['./change-parent.component.css']
+  styleUrls: ['./change-parent.component.scss']
 })
 export class ChangeParentComponent implements OnInit {
 

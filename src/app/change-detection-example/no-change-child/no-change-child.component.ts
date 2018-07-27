@@ -4,7 +4,7 @@ import { ChildRecordService } from '../child-record.service';
 @Component({
   selector: 'app-no-change-child',
   templateUrl: './no-change-child.component.html',
-  styleUrls: ['./no-change-child.component.css']
+  styleUrls: ['./no-change-child.component.scss']
 })
 export class NoChangeChildComponent implements OnInit, OnChanges, OnDestroy {
 

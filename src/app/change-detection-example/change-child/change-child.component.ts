@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-change-child',
   templateUrl: './change-child.component.html',
-  styleUrls: ['./change-child.component.css']
+  styleUrls: ['./change-child.component.scss']
 })
 export class ChangeChildComponent implements OnInit, OnChanges {
 
