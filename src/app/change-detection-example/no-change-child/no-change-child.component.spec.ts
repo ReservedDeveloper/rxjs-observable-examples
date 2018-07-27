@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NoChangeChildComponent } from './no-change-child.component';
 import { ChildRecordService } from '../child-record.service';
+import { LogService } from '../../log.service';
 
 describe('NoChangeChildComponent', () => {
   let component: NoChangeChildComponent;
@@ -10,7 +11,10 @@ describe('NoChangeChildComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ NoChangeChildComponent ],
-      providers: [ ChildRecordService ]
+      providers: [
+        ChildRecordService,
+        LogService
+      ]
     })
       .compileComponents();
   }));

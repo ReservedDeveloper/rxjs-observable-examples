@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StreamInputSwitchChildComponent } from './stream-input-switch-child.component';
+import { LogService } from '../../log.service';
+import { ChildRecordService } from '../child-record.service';
 
 describe('StreamInputSwitchChildComponent', () => {
   let component: StreamInputSwitchChildComponent;
@@ -8,7 +10,11 @@ describe('StreamInputSwitchChildComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StreamInputSwitchChildComponent ]
+      declarations: [ StreamInputSwitchChildComponent ],
+      providers: [
+        ChildRecordService,
+        LogService
+      ]
     })
     .compileComponents();
   }));
@@ -16,7 +22,6 @@ describe('StreamInputSwitchChildComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(StreamInputSwitchChildComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
