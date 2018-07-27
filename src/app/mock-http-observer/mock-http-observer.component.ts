@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChunkService } from '../chunk.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-mock-http-observer',

@@ -1,19 +1,27 @@
 import { async, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { Component } from '@angular/core';
 import { DataService } from './data.service';
+import { ChunkService } from './chunk.service';
+import { DataCreatorComponent } from './data-creator/data-creator.component';
+import { DataObserverComponent } from './data-observer/data-observer.component';
+import { MockHttpObserverComponent } from './mock-http-observer/mock-http-observer.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ FormsModule ],
       declarations: [
+        DataCreatorComponent,
+        DataObserverComponent,
+        MockHttpObserverComponent,
         AppComponent,
-        MockDataCreatorComponent,
-        MockDataObserverComponent,
-        MockMockHttpObserverComponent
       ],
-      providers: [DataService]
+      providers: [
+        DataService,
+        ChunkService,
+      ],
     }).compileComponents();
   }));
 
@@ -23,24 +31,3 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   }));
 });
-
-@Component({
-  selector: 'app-data-creator',
-  template: ''
-})
-class MockDataCreatorComponent {
-}
-
-@Component({
-  selector: 'app-data-observer',
-  template: ''
-})
-class MockDataObserverComponent {
-}
-
-@Component({
-  selector: 'app-mock-http-observer',
-  template: ''
-})
-class MockMockHttpObserverComponent {
-}
