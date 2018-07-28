@@ -10,6 +10,7 @@ import { NoChangeChildComponent } from './no-change-child/no-change-child.compon
 import { ChildRecordService } from './child-record.service';
 import { StreamInputSwitchChildComponent } from './stream-input-switch-child/stream-input-switch-child.component';
 import { SubjectBackedChildComponent } from './subject-backed-child/subject-backed-child.component';
+import { StreamInputMergeMapChildComponent } from './stream-input-merge-map-child/stream-input-merge-map-child.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { SubjectBackedChildComponent } from './subject-backed-child/subject-back
     ChangeChildComponent,
     NoChangeChildComponent,
     StreamInputSwitchChildComponent,
-    SubjectBackedChildComponent
+    SubjectBackedChildComponent,
+    StreamInputMergeMapChildComponent
   ],
   providers: [
     ChildRecordService
