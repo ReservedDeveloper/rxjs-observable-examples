@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { LogService } from '../../../log.service';
+import { LogService } from '@app/log.service';
 import { ChildRecordService } from '../../child-record.service';
 import { delay, switchMap, tap } from 'rxjs/operators';
 

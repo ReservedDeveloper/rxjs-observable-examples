@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SwitchMapChildComponent } from './switch-map-child.component';
-import { LogService } from '../../../log.service';
+import { LogService } from '@app/log.service';
 import { ChildRecordService } from '../../child-record.service';
 
 describe('SwitchMapChildComponent', () => {

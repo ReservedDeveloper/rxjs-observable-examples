@@ -6,8 +6,10 @@ import { NoChangeChildComponent } from './primitive/no-change-child/no-change-ch
 import { ChangeChildComponent } from './primitive/change-child/change-child.component';
 import { SubjectBackedChildComponent } from './primitive/subject-backed-child/subject-backed-child.component';
 import { SwitchMapChildComponent } from './stream/switch-map-child/switch-map-child.component';
-import { LogService } from '../log.service';
+import { LogService } from '@app/log.service';
 import { ChildRecordService } from './child-record.service';
+import { ChangeGrandparentComponent } from '@app/change-detection-example/change-grandparent/change-grandparent.component';
+import { MergeMapChildComponent } from '@app/change-detection-example/stream/merge-map-child/merge-map-child.component';
 
 describe('ChangeDetectionExampleComponent', () => {
   let component: ChangeDetectionExampleComponent;
@@ -16,12 +18,14 @@ describe('ChangeDetectionExampleComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
+        ChangeDetectionExampleComponent,
         ChangeParentComponent,
-        NoChangeChildComponent,
+        ChangeGrandparentComponent,
         ChangeChildComponent,
-        SubjectBackedChildComponent,
+        NoChangeChildComponent,
         SwitchMapChildComponent,
-        ChangeDetectionExampleComponent, // this declaration must be last to ensure the rest are loaded
+        SubjectBackedChildComponent,
+        MergeMapChildComponent
       ],
       providers: [
         LogService,

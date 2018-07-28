@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { LogService } from '../../log.service';
+import { LogService } from '@app/log.service';
 
 @Component({
   selector: 'app-change-parent',
