@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { LogService } from '../../log.service';
-import { ChildRecordService } from '../child-record.service';
+import { LogService } from '../../../log.service';
+import { ChildRecordService } from '../../child-record.service';
 import { delay, mergeMap, tap } from 'rxjs/operators';
 
 /**
@@ -11,11 +11,11 @@ import { delay, mergeMap, tap } from 'rxjs/operators';
  * the record, to ensure you do not have any dependent operations lost with the network switch
  */
 @Component({
-  selector: 'app-stream-input-merge-map-child',
-  templateUrl: './stream-input-merge-map-child.component.html',
-  styleUrls: ['./stream-input-merge-map-child.component.scss']
+  selector: 'app-merge-map-child',
+  templateUrl: './merge-map-child.component.html',
+  styleUrls: ['./merge-map-child.component.scss']
 })
-export class StreamInputMergeMapChildComponent implements OnInit, OnDestroy {
+export class MergeMapChildComponent implements OnInit, OnDestroy {
 
   @Input()
   idStream: Observable<number>;
@@ -34,14 +34,14 @@ export class StreamInputMergeMapChildComponent implements OnInit, OnDestroy {
     this.recordSubscription = this.idStream
       .pipe(
         tap((id: number) => {
-          this.logService.log(`Change detected for StreamInputMergeMapChildComponent. Old value:
+          this.logService.log(`Change detected for MergeMapChildComponent. Old value:
           ${this.previousId || 'null'}, New value: ${id}`);
         }),
         mergeMap((id: number) => {
           return this.childRecordService.getChildRecord(id)
             .pipe(
               delay(5000),
-              tap(() => this.logService.log(`StreamInputMergeMapChildComponent record for ${id} received after 5s`))
+              tap(() => this.logService.log(`MergeMapChildComponent record for ${id} received after 5s`))
             );
         }),
       )

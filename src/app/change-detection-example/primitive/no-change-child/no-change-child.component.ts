@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { ChildRecordService } from '../child-record.service';
-import { LogService } from '../../log.service';
+import { ChildRecordService } from '../../child-record.service';
+import { LogService } from '../../../log.service';
 import { Subscription } from 'rxjs';
 
 @Component({

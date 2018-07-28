@@ -5,12 +5,12 @@ import { ChangeDetectionExampleRoutingModule } from './change-detection-example-
 import { ChangeDetectionExampleComponent } from './change-detection-example.component';
 import { ChangeParentComponent } from './change-parent/change-parent.component';
 import { ChangeGrandparentComponent } from './change-grandparent/change-grandparent.component';
-import { ChangeChildComponent } from './change-child/change-child.component';
-import { NoChangeChildComponent } from './no-change-child/no-change-child.component';
+import { ChangeChildComponent } from './primitive/change-child/change-child.component';
+import { NoChangeChildComponent } from './primitive/no-change-child/no-change-child.component';
 import { ChildRecordService } from './child-record.service';
-import { StreamInputSwitchChildComponent } from './stream-input-switch-child/stream-input-switch-child.component';
-import { SubjectBackedChildComponent } from './subject-backed-child/subject-backed-child.component';
-import { StreamInputMergeMapChildComponent } from './stream-input-merge-map-child/stream-input-merge-map-child.component';
+import { SwitchMapChildComponent } from './stream/switch-map-child/switch-map-child.component';
+import { SubjectBackedChildComponent } from './primitive/subject-backed-child/subject-backed-child.component';
+import { MergeMapChildComponent } from './stream/merge-map-child/merge-map-child.component';
 
 @NgModule({
   imports: [
@@ -23,9 +23,9 @@ import { StreamInputMergeMapChildComponent } from './stream-input-merge-map-chil
     ChangeGrandparentComponent,
     ChangeChildComponent,
     NoChangeChildComponent,
-    StreamInputSwitchChildComponent,
+    SwitchMapChildComponent,
     SubjectBackedChildComponent,
-    StreamInputMergeMapChildComponent
+    MergeMapChildComponent
   ],
   providers: [
     ChildRecordService

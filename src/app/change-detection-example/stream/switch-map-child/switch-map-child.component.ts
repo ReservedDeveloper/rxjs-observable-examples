@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { LogService } from '../../log.service';
-import { ChildRecordService } from '../child-record.service';
+import { LogService } from '../../../log.service';
+import { ChildRecordService } from '../../child-record.service';
 import { delay, switchMap, tap } from 'rxjs/operators';
 
 /**
@@ -11,11 +11,11 @@ import { delay, switchMap, tap } from 'rxjs/operators';
  * on pending network requests if you rapid-fire change views.
  */
 @Component({
-  selector: 'app-stream-input-switch-child',
-  templateUrl: './stream-input-switch-child.component.html',
-  styleUrls: ['./stream-input-switch-child.component.scss']
+  selector: 'app-switch-map-child',
+  templateUrl: './switch-map-child.component.html',
+  styleUrls: ['./switch-map-child.component.scss']
 })
-export class StreamInputSwitchChildComponent implements OnInit, OnDestroy {
+export class SwitchMapChildComponent implements OnInit, OnDestroy {
 
   @Input()
   idStream: Observable<number>;
@@ -34,14 +34,14 @@ export class StreamInputSwitchChildComponent implements OnInit, OnDestroy {
     this.recordSubscription = this.idStream
       .pipe(
         tap((id: number) => {
-          this.logService.log(`Change detected for StreamInputChildComponent. Old value:
+          this.logService.log(`Change detected for SwitchMapChildComponent. Old value:
           ${this.previousId || 'null'}, New value: ${id}`);
         }),
         switchMap((id: number) => {
           return this.childRecordService.getChildRecord(id)
             .pipe(
               delay(5000),
-              tap(() => this.logService.log(`StreamInputSwitchChildComponent record for ${id} received after 5s`))
+              tap(() => this.logService.log(`SwitchMapChildComponent record for ${id} received after 5s`))
             );
         }),
       )
