@@ -1,28 +1,37 @@
 <p>
   Below this will be an input with button, which, when clicked, will push the new value to each of its children.
-</p>
-<p>
+
   How those updates are handled depends on how the component processes input modifications, if at all.
 </p>
-<input type="number" #idPicker value="0"/>
+<label>
+  View Record:
+  <input type="number" #idPicker value="0"/>
+</label>
 <button (click)="this.changeChildId()">Change ID</button>
-<h4>Primitive Inputs</h4>
-<p>
-  The following children take a primitive input and use it to initialize a subscription
-  The most common example would be passing in an ID and firing an HttpClient get request based on it,
-  then subscribing to the results.
-</p>
-<div class="three-column">
-  <app-no-change-child [id]="this.currentId"></app-no-change-child>
-  <app-change-child [id]="this.currentId"></app-change-child>
-  <app-subject-backed-child></app-subject-backed-child>
+<div class="example-sections">
+  <div class="section">
+    <h3>Parent/Child with Primitive Input Setting Dependent Subscription in ngOnInit</h3>
+    <p>
+      The following children take a primitive input and use it to initialize a subscription
+      The most common example would be passing in an ID and firing an HttpClient get request based on it,
+      then subscribing to the results.
+    </p>
+    <div class="three-column">
+      <app-no-change-child [id]="this.currentId"></app-no-change-child>
+      <app-change-child [id]="this.currentId"></app-change-child>
+      <app-subject-backed-child></app-subject-backed-child>
+    </div>
+  </div>
+  <div class="section">
+    <h3>Parent/Child with Stream Input Setting Dependent Subscription in ngOnInit</h3>
+    <p>
+      The following children take a stream input and use it to initialize a subscription.
+      This might be a backing `Subject` that can be used to push new values to,
+      say when picking a record from a list that has a detail view nested within the same component.
+    </p>
+    <div class="three-column">
+      <app-stream-input-switch-child [idStream]="this.childIdStream"></app-stream-input-switch-child>
+    </div>
+  </div>
 </div>
-<h4>Stream Inputs</h4>
-<p>
-  The following children take a stream input and use it to initialize a subscription.
-  This might be a backing `Subject` that can be used to push new values to,
-  say when picking a record from a list that has a detail view nested within the same component.
-</p>
-<div class="three-column">
-  <app-stream-input-switch-child [idStream]="this.childIdStream"></app-stream-input-switch-child>
-</div>
+
