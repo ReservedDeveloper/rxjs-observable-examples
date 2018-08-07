@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ChunkService } from '../chunk.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-mock-http-observer',
   templateUrl: './mock-http-observer.component.html',
-  styleUrls: ['./mock-http-observer.component.css']
+  styleUrls: ['./mock-http-observer.component.scss']
 })
 export class MockHttpObserverComponent implements OnInit {
   chunks: Observable<any[]>;

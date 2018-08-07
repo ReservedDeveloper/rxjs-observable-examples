@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-data-observer',
   templateUrl: './data-observer.component.html',
-  styleUrls: ['./data-observer.component.css']
+  styleUrls: ['./data-observer.component.scss']
 })
 export class DataObserverComponent implements OnInit {
 
