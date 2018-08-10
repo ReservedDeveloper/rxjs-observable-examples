@@ -1,0 +1,10 @@
+<div>
+  <h4>No NgOnChanges</h4>
+  <p>
+    This component does not modify the subscription in the `ngOnChanges` method.
+  </p>
+  <ul>
+    <li *ngFor="let inputUpdate of this.inputUpdate">{{ inputUpdate }}</li>
+  </ul>
+  <p>Record is: <span>{{ this.record }}</span></p>
+</div>

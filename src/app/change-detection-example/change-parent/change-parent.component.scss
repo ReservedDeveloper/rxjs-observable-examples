@@ -1,0 +1,18 @@
+.example-sections {
+  > .section {
+    border: 0.3em solid black;
+    margin: 0.5em 0;
+    padding: 2em;
+  }
+}
+
+.three-column {
+  display: flex;
+  justify-content: space-between;
+
+  > * {
+    flex: 1;
+    max-width: 30%;
+    padding: 0 1px;
+  }
+}
